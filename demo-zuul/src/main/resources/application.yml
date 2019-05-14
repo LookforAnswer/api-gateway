@@ -4,6 +4,7 @@ spring:
   application:
     name: api-gateway
 
+# 用于注册服务
 eureka:
   client:
     register-with-eureka: true
@@ -13,6 +14,8 @@ eureka:
       defaultZone: http://admin:qwe123@localhost:8761/eureka
   instance:
     ip-address: true
+
+
 
 zuul:
   routes:
@@ -28,3 +31,5 @@ zuul:
     api-b:
       path: /api-b/**
       serviceId: service-B
+
+

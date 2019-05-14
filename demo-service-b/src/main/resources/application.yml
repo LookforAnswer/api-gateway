@@ -4,6 +4,8 @@ spring:
   application:
     name: service-B
 
+
+# 用于注册服务
 eureka:
   client:
     register-with-eureka: true
