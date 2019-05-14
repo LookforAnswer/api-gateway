@@ -1,0 +1,30 @@
+server:
+  port: 5555
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      # 由于 eurake 项目添加了验证信息，地址信息需要与
+      defaultZone: http://admin:qwe123@localhost:8761/eureka
+  instance:
+    ip-address: true
+
+zuul:
+  routes:
+    # 直接通过 url 映射转发
+    api-a-url:
+      path: /api-a-url/**
+      url: http://localhost:2222/
+    # 通过 微服务 serviceId 的方式来映射
+    api-a:
+      path: /api-a/**
+      serviceId: service-A
+
+    api-b:
+      path: /api-b/**
+      serviceId: service-B

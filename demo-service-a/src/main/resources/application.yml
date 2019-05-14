@@ -1,0 +1,15 @@
+server:
+  port: 2222
+spring:
+  application:
+    name: service-A
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      # 由于 eurake 项目添加了验证信息，地址信息需要与
+      defaultZone: http://admin:qwe123@localhost:8761/eureka
+  instance:
+    ip-address: true
