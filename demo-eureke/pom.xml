@@ -13,6 +13,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo-eureke</name>
 
+	<packaging>jar</packaging>
+
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

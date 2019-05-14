@@ -13,6 +13,7 @@
   <artifactId>demo-zuul</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>demo-zuul</name>
+
   <packaging>jar</packaging>
 
   <description>Demo project for Spring Boot</description>

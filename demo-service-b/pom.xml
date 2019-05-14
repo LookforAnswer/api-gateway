@@ -12,6 +12,9 @@
   <artifactId>demo-service-b</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>demo-service-b</name>
+
+  <packaging>jar</packaging>
+
   <description>Demo project for Spring Boot</description>
 
   <properties>
