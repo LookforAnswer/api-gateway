@@ -23,6 +23,9 @@
     <module>demo-eureke</module>
     <module>demo-service-a</module>
     <module>demo-service-b</module>
+    <module>demo-zuul-service</module>
+    <module>demo-zuul-dao</module>
+    <module>demo-zuul-model</module>
   </modules>
 
   <properties>
@@ -37,8 +40,29 @@
         <artifactId>log4j</artifactId>
         <version>${log4j.version}</version>
       </dependency>
+
+      <dependency>
+        <groupId>com.qxy</groupId>
+        <artifactId>demo-zuul-service</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.qxy</groupId>
+        <artifactId>demo-zuul-dao</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.qxy</groupId>
+        <artifactId>demo-zuul-model</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
+
+
 
   <!--该插件作用是打一个可运行的包，必须要写在需要打包的项目里。这里的父模块不需要打包运行，所以删掉该插件。-->
   <!--<build>-->

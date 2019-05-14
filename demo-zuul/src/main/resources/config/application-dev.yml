@@ -1,0 +1,55 @@
+spring:
+  application:
+    domain: dev-zuul.qxy.com
+  output:
+    ansi:
+      enabled: always
+  autoconfigure:
+      exclude:
+        - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  datasource:
+    druid:
+      username: root
+      password: 123456
+      url: jdbc:mysql://10.30.128.219:3306/test_zuul?useUnicode=true&zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+      driver-class-name: com.mysql.jdbc.Driver
+      initial-size: 1
+      min-idle: 1
+      max-active: 10
+      query-timeout: 10
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      use-global-data-source-stat: true
+      stat:
+        log-slow-sql: true
+        slow-sql-millis: 1000
+        merge-sql: true
+      slf4j:
+        enabled: true
+        data-source-log-enabled: true
+        connection-log-enabled: false
+        connection-log-error-enabled: true
+        statement-log-enabled: true
+        statement-log-error-enabled: true
+        statement-sql-format-option:
+          upp-case: true
+          pretty-format: false
+        statement-sql-pretty-format: false
+        statement-parameter-set-log-enabled: false
+        statement-prepare-after-log-enabled: false
+        statement-close-after-log-enabled: false
+        statement-executable-sql-log-enable: true
+        result-set-log-enabled: false
+        result-set-log-error-enabled: true
+      wall:
+        enabled: true
+        db-type: mysql
+        log-violation: true
+        throw-exception: false
+        config:
+          delete-where-none-check: true
+          multi-statement-allow: true
+      stat-view-servlet:
+        enabled: true

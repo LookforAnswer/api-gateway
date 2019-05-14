@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qxy.zuul.TestMapper">
+
+  <sql id="fieldls">
+  		id AS id,
+  		path AS path
+ 	</sql>
+
+  <!--修改通用字段-->
+  <sql id="updateCommonField">
+    <if test="path != null">
+      path = #{path}
+    </if>
+  </sql>
+
+  <sql id="table_name">
+        test_table
+ 	</sql>
+
+
+  <sql id="where_sql">
+    <where>
+      <if test="id != null">
+        id = #{id}
+      </if>
+      <if test="path != null and path  != ''">
+        AND path like CONCAT('%', #{path}, '%')
+      </if>
+    </where>
+  </sql>
+
+  <select id="findList" parameterType="com.qxy.zuul.domain.query.TestTableQM"
+          resultType="com.qxy.zuul.domain.TestTable">
+    select
+    <include refid="fieldls"/>
+    from
+    <include refid="table_name"/>
+
+    <include refid="where_sql"/>
+    <if test="orderByOperation != null">
+      <foreach collection="orderByOperation.itemOperators" item="opr" separator="," open="order by ">
+        ${opr.column} ${opr.operator}
+      </foreach>
+    </if>
+    <if test="page != null">
+      limit #{page.offset},#{page.limit}
+    </if>
+  </select>
+
+  <select id="findListByIds" resultType="com.qxy.zuul.domain.query.TestTableQM">
+    select
+    <include refid="fieldls"/>
+    from
+    <include refid="table_name"/>
+    where id in
+    <foreach collection="idList" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </select>
+
+  <insert id="insert" parameterType="com.qxy.zuul.domain.TestTable">
+    insert into
+    <include refid="table_name"/>(
+    path)
+    value(
+    #{path})
+    <selectKey resultType="java.lang.Long" keyProperty="id">
+      SELECT LAST_INSERT_ID() AS id
+    </selectKey>
+  </insert>
+
+  <select id="getById" parameterType="Long" resultType="com.qxy.zuul.domain.query.TestTableQM">
+    select
+    <include refid="fieldls"/>
+    from
+    <include refid="table_name"/>
+    WHERE id = #{id}
+  </select>
+
+
+  <update id="update" parameterType="com.qxy.zuul.domain.TestTable">
+    UPDATE
+    <include refid="table_name"/>
+    <set>
+      <if test="path != null">
+        path = #{path},
+      </if>
+    </set>
+    WHERE id = #{id}
+  </update>
+
+  <update id="deleteById" parameterType="com.qxy.zuul.domain.TestTable">
+    UPDATE
+    <include refid="table_name"/>
+    <set>
+      <if test="path != null">
+        path = #{path},
+      </if>
+    </set>
+    WHERE id = #{id}
+  </update>
+
+
+  <select id="count" parameterType="com.qxy.zuul.domain.query.TestTableQM" resultType="int">
+    select count(1) from
+    <include refid="table_name"/>
+    <include refid="where_sql"/>
+  </select>
+
+</mapper>
