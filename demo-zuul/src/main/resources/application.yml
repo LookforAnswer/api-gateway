@@ -1,7 +1,11 @@
+
 server:
   port: 5555
 
 spring:
+  profiles:
+    active: @profileActive@
+
   application:
     name: api-gateway
 

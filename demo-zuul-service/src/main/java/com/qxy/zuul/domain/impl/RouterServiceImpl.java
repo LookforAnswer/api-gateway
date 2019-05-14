@@ -22,7 +22,6 @@ import java.util.Map;
 @Service
 public class RouterServiceImpl implements IRouterService {
 
-
     @Resource
     private TestMapper testMapper;
 
@@ -38,6 +37,7 @@ public class RouterServiceImpl implements IRouterService {
         Map<String, ZuulProperties.ZuulRoute> result = new HashMap<>();
         for (TestTable testTable : testTableList) {
             ZuulProperties.ZuulRoute zuulRoute = new ZuulProperties.ZuulRoute();
+            //TODO：这里只设置了path
             zuulRoute.setPath(testTable.getPath());
             result.put("a",zuulRoute);
         }
