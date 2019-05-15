@@ -19,7 +19,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-    <eurake.version>1.3.4.RELEASE</eurake.version>
+
 	</properties>
 
 	<dependencies>
@@ -31,13 +31,11 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-eureka-server</artifactId>
-      <version>${eurake.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-security</artifactId>
-      <version>${eurake.version}</version>
     </dependency>
 
 		<dependency>
