@@ -54,9 +54,12 @@ zuul:
       path: /api-b/**
       serviceId: service-B
 
-    # 非java 项目接入
+    # 非java 项目接入（serviceId的方式）
     product-sidecar:
       path: /product-sidecar/**
       serviceId: product-sidecar
 
+    test-php:
+      path: /test-php/
+      url: http://localhost:63340/
 
