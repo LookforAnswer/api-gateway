@@ -53,5 +53,8 @@ zuul:
     api-b:
       path: /api-b/**
       serviceId: service-B
+    product-sidecar:
+      path: /product-sidecar/**
+      serviceId: product-sidecar
 
 

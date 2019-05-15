@@ -70,19 +70,19 @@ public class AccessFilter extends ZuulFilter {
         log.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
 
         Object accessToken = request.getParameter("accessToken");
-        if (accessToken == null) {
-            log.warn("access token is empty");
-
-            //令zuul过滤该请求，不对其进行路由
-            ctx.setSendZuulResponse(false);
-
-            //设置了其返回的错误码
-            ctx.setResponseStatusCode(401);
-
-            //ctx.setResponseBody(body) 通过此方式设置返回信息
-
-            return null;
-        }
+//        if (accessToken == null) {
+//            log.warn("access token is empty");
+//
+//            //令zuul过滤该请求，不对其进行路由
+//            ctx.setSendZuulResponse(false);
+//
+//            //设置了其返回的错误码
+//            ctx.setResponseStatusCode(401);
+//
+//            //ctx.setResponseBody(body) 通过此方式设置返回信息
+//
+//            return null;
+//        }
         log.info("access token ok");
         return null;
     }
