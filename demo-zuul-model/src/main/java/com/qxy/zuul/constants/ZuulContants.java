@@ -9,22 +9,22 @@ package com.qxy.zuul.constants;
 public class ZuulContants {
 
     /**
-     * 异常过滤器
+     * 在其他阶段发生错误时执行该过滤器
      */
     public static final String ERROR_TYPE = "error";
 
     /**
-     * 运行过滤器
+     * 这种过滤器在路由到微服务以后执行
      */
     public static final String POST_TYPE = "post";
 
     /**
-     * 前置过滤器
+     * 这种过滤器在请求被路由之前调用
      */
     public static final String PRE_TYPE = "pre";
 
     /**
-     * 路由过滤器
+     * 这种过滤器将请求路由到微服务
      */
     public static final String ROUTE_TYPE = "route";
 
